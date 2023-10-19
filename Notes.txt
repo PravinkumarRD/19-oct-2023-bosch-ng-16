@@ -1,0 +1,133 @@
+PoC - Proof-Of-Concept [Fullstack - MEAN/Angular + Microsoft/Angular + Java/...] [SQL/NoSQL]
+		[M - MongoDB/ E - ExpressJS / A -  Angular, Node JS]
+		SPA - Single Page Application
+		Security [Authentication/Authorization/Security Trimming]
+
+Why Angular?
+
+1) Angular is a one framework for [Web App/Desktop/Mobile Web/Native Mobile Apps]
+2) Angular framework talks about speed and performance
+3) Angular framework is a modular framework
+4) Develop your own application in modular way
+5) Angular enables modules to be loaded in eager and lazy way
+6) Angular framework offers multiple development languages
+	[Typescript/ES5/ESNext/Dart]
+7) Two compilation models
+	[JIT - Just-In-Time/ AoT - Ahead-Of-Time- Production] [Starting with Ng 9 - Default is AoT]
+8) Develop SPA - Single Page Application
+9) Routing - @angular/router
+10) From Angular 2-8 [ViewEngine] and from Angular 9-16 [Ivy Endering]
+11) Angular offers component based development
+		[Create custom/reusable tag - Display/Extends the vocabulary of HTML - <bosch-3d-chart/>]
+12) Rich Data Binding support [Source-To-Destination/Destination-To-source/Two-Way]
+13) Zone.JS
+14) CDC - Change Detection Cycle
+15) Rich Data Formatting - Pipes [In-built/Third-party pipes/Custom Pipes]
+16) Rich Directives [In-built/Third-Party/Custom]
+	Directive extends the behaviour of an Html Element of component
+17) Services in Angular [Share data and logic in Angular application]
+18) In-built support for IoC and D.I.
+19) Http support [Perform CRUD operations using Http Service with Http verbs - GET/POST/PUT/DELETE]
+20) Angular support rich animations - @angular/animations
+21) Angular Library Development - Enable developers to reuse the components in different Angular projects
+22) Angular offers Angular Component Library along with CDK - Component Development Kit
+	@angular/material
+23) Use Angular components in Non-Angular application - Angular Elements [For Ex - React/Vue JS/Html&JS/...]
+24) Angular Forms - 
+	1) Template Driven Forms
+	2) Reactive Forms
+25) Angular has integration with a third party library RxJS - Reactive Extensions for JavaScript Library
+	Observable-Observer pattern
+26) Angular offers CLI [Command Line Interface] tool to create Angular applications/libraries
+	@angular/cli
+27) Angular out-of-the-box uses Jasmine framework for writing test cases
+28) Angular uses Karma Test Runner tool to run Jasmine Test cases
+29) Support for PWA - Progressive Web Application 
+30) SSR - Server Side Rendering - @angular/universal
+		SEOs cannot crawl them
+
+
+Angular Framework's major building blocks - 
+
+	1) NgModule
+	2) Component
+	3) Directive
+	4) Pipe
+	5) Service
+
+Angular Application Bootstraping process
+	1) By default, when you create your first angular application, you will always one module and one component
+	2) Modules are like blackbox. Nothing goes out or nothing come in unless and until you want it
+
+
+Create first Angular application - 
+
+	1) Install Angular CLI Globally on your machine
+		npm install @angular/cli --global 
+	2) How do you check CLI version?
+		ng v
+	3) Create new Angular Project/Application
+		ng new first-ng-app
+
+Angular Coding Style Guide
+	https://angular.io/guide/styleguide
+
+
+In Angular framework, all major building blocks are classes
+
+Angular framework offers Number of Metadatas - Metadata tells Angular framework how to process a perticular class, Property, Data  Members, function, ...
+
+	All the metadatas come from @angular/core library
+	
+1)NgModule Metadata - 
+	@NgModule({
+  	    imports:[Day2Module], //All the dependency modules
+	    exports:[], //Anything you want to use outside this module
+	    declarations:[], //Entries of Components, Directives and Pipes
+	    providers:[], //Entries of Service(s)
+	    bootstrap:[] //component(s) entries which you want to render when the first page is renderd on your browser
+	})
+	class Day1Module{
+
+	}
+
+	@NgModule({
+  	    imports:[], //All the dependency modules
+	    exports:[Day2Component1], //Anything you want to use outside this module
+	    declarations:[Day2Component1], //Entries of Components, Directives and Pipes
+	    providers:[], //Entrries of Service(s)
+	})
+	class Day2Module{
+
+	}
+
+1) Component Metadata - 
+	@Component({
+	    selector:'', //CSS Selector. It is an name of your element which you use in Html. For Example - <bosch-root></bosch-root>
+	    template:''//Display
+	})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
