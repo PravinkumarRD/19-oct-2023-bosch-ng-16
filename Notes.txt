@@ -1,3 +1,8 @@
+Trainer Info -
+Email Id - dabade.pravinkumar@gmail.com
+Contact # - 9665622460
+	
+
 PoC - Proof-Of-Concept [Fullstack - MEAN/Angular + Microsoft/Angular + Java/...] [SQL/NoSQL]
 		[M - MongoDB/ E - ExpressJS / A -  Angular, Node JS]
 		SPA - Single Page Application
@@ -108,12 +113,213 @@ Angular framework offers Number of Metadatas - Metadata tells Angular framework 
 	})
 
 
+Introduction to PoC - Bosch Events Management Portal [Roles - Administrator/Hr/Employee] 
+	Authentication and Authorization [Role Based] with Security Trimming
+
+	Employee Responsibilities - 
+		1) Employee can registerhimself/herself/itself
+		2) Employee can see other employee details
+		3) Employee can see the list of events
+		4) Employee can see the details of the event
+		5) Employee can register for an event
+		6) Employee can give feedback to an event
+	Hr Responsibilites - 
+		All reponsibilites of Employee
+		1) Adding, Removing, Updating the events
+		2) Collect feedback
+	Administrator - Application owner
+
+
+Application Structure - 
+	1) Featurewise and module wise Folder Structure
+	2) Each feature folder will contain its own module
+
+	src
+		index.html
+		main.ts
+		styles.css
+		...
+		app
+			employees
+				employees.module.ts
+				components
+					employees-list
+						employees-list.component.[ts,spec.ts,html,css]
+					employee-details
+						employee-details.component.[ts,spec.ts,html,css]
+					register-employee
+						register-employee.component.[ts,spec.ts,html,css]
+				models
+					employee.[ts, spec.ts]
+				pipes
+					*.pipe.[ts, spec.ts]
+				directives
+					*.directive.[ts, spec.ts]
+				services
+					employees.service.[ts, .sepc.ts]
+			events
+				events.module.ts
+				components
+					events-list
+						events-list.component.[ts,spec.ts,html,css]
+					event-details
+						event-details.component.[ts,spec.ts,html,css]
+					register-event
+						register-event.component.[ts,spec.ts,html,css]
+				models
+					event.[ts, spec.ts]
+				pipes
+					*.pipe.[ts, spec.ts]
+				directives
+					*.directive.[ts, spec.ts]
+				services
+					event.service.[ts, .sepc.ts]
+			home
+				home.module.ts
+				components
+					bosch-home
+						bosch-home.component.[ts,spec.ts,html,css]
+			navigation
+				navigation.module.ts
+				components
+					nav-bar
+						nav-bar.component.[ts,spec.ts,html,css]
+					footer
+						footer.component.[ts,spec.ts,html,css]
+			security
+				security.module.ts
+				components
+					login
+						login.component.[ts,spec.ts,html,css]
+					...
+				models
+					*.[ts, spec.ts]
+				pipes
+					*.pipe.[ts, spec.ts]
+				directives
+					*.directive.[ts, spec.ts]
+				services
+					security.service.[ts, .sepc.ts]
+			shared
+				shared.module.ts
+				components
+					not-found
+						not-found.component.[ts,spec.ts,html,css]
+				pipes
+					date-internationalization.pipe.[ts/sepc.ts]
+
+
+Angular CLI tool offers generate commands using which we can add - 
+	ng-modules, components, services, pipes, directive, interface, classes, ..
+
+	Generate commands - 
+
+		1) Add NgModule with feature-folder - 
+			ng g m employees
+		2) Add component
+			ng g c employees/components/employees-list
+		3) Add pipe
+			ng g p employees/pipes/name-of-the-pipe
+		4) Add directive
+			ng g d employees/directives/name-of-the-directive
+		5) Add service
+			ng g s employees/services/name-of-the-service
+		other commands
+			ng g class employees/models/employee
+			ng g class/interface/... into respective folders
+
+Introduction to Component - 
+	1) Component is a part of webpage
+	2) Component extends the vocabulary of Html - Tags
+	3) Component is used for display
+	4) Component is a special type of directive
+	5) Component development contains 3 parts - 
+		
+Component is divided into three parts - [HTML, CSS, Component class - logic]
+	1) Component Logic - written in component class
+	2) Component Template - [Display] - template:''/""/``
+		i) Inline Template [2-3 lines of code]
+			a) Single or double quotes
+			b) Backtick syntax
+		ii) Linked/External Template [.html file] - templateUrl:'file-path'
+
+Data Binding - 
+	One-Way - Source -To- Destination
+		i) Interpolation
+		2) Property Binding - DOM Properties
+
+
+In-build Directives
+	Looping Directive
+		*ngFor = For-Of
+	Conditional Directive
+		*ngIf;else
+In-built element from Angular framework
+	<ng-template></ng-template>
 
 
 
+Second Feature - events - 
+
+	ng g m events
+
+	ng g c events/components/events-list
+	ng g c events/components/event-details
+
+	ng g class events/models/event
+
+Data Formatting in Angular - 
+
+	Use pipe in Component template and the syntax is - 
+
+		property|pipe-name
+		property|pipe-name:'agr1':'arg2':'arg3'
+		property|pipe-name:'agr1':'arg2':'arg3'|pipe-name:'arg1'|pipe-name
+	Pipes -
+		1) In-built Pipes
+			lowercase, uppercase, titlecase, currency, date, ...
+		2) Custom Pipes - camel case the pipe name
+			1) Write a pipe which will display the date in a choice of language
+				Ex - startDate|dateInternationalization:'es-ES'
+			2) Write a pipe which will filter the events by event name
+				Use Two-Way data binding
+				[(ngModel)]
+				ngModel - directive comes from a separate library - @angular/forms
+					FormsModule which exports ngModel directive			
+		3) Third-party Pipes
+			ngx-pagination - Package [npm i ngx-pagination]
+				NgxPaginationModule
+					1) Pipe - paginate
+					2) Component - Pagination Control
+
+How does pipe work internally?
+
+import { Pipe, TransformPipe } from '@angular/core'
+
+@Pipe({
+	name:'awesome'
+})
+class MyAwesomePipe implements TransformPipe {
+	transform(value:unknown, ...args:unknown[]):unknown{
+		//Check the arguments and write the logic based on arguments
+		//you write the logic to transform/format the value
+		//return formatted value
+	}
+}
+
+property|awesome
+property|awesome:'one':'two'
 
 
 
+Assignments - 
+	1) Add pipe which will filters employees to display all employees list which contains the starts with
+	2) Add pipe which will display employees who had joined the company on a given date
+	3) Sort employees by the listed columns in EmployeesListComponent
+		Default - Ascending and Descending [Pipes/your logic]
+	4) Complete the display of EmployeeDetailsComponent
+	5) Dsiplay Joining date of an Employee in your local language using dateInternationalization
+	6) Apply pagination on employees table
 
 
 
