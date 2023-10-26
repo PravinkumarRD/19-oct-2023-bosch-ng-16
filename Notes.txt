@@ -1,0 +1,611 @@
+Trainer Info -
+Email Id - dabade.pravinkumar@gmail.com
+Contact # - 9665622460
+	
+
+PoC - Proof-Of-Concept [Fullstack - MEAN/Angular + Microsoft/Angular + Java/...] [SQL/NoSQL]
+		[M - MongoDB/ E - ExpressJS / A -  Angular, Node JS]
+		SPA - Single Page Application
+		Security [Authentication/Authorization/Security Trimming]
+
+Why Angular?
+
+1) Angular is a one framework for [Web App/Desktop/Mobile Web/Native Mobile Apps]
+2) Angular framework talks about speed and performance
+3) Angular framework is a modular framework
+4) Develop your own application in modular way
+5) Angular enables modules to be loaded in eager and lazy way
+6) Angular framework offers multiple development languages
+	[Typescript/ES5/ESNext/Dart]
+7) Two compilation models
+	[JIT - Just-In-Time/ AoT - Ahead-Of-Time- Production] [Starting with Ng 9 - Default is AoT]
+8) Develop SPA - Single Page Application
+9) Routing - @angular/router
+10) From Angular 2-8 [ViewEngine] and from Angular 9-16 [Ivy Endering]
+11) Angular offers component based development
+		[Create custom/reusable tag - Display/Extends the vocabulary of HTML - <bosch-3d-chart/>]
+12) Rich Data Binding support [Source-To-Destination/Destination-To-source/Two-Way]
+13) Zone.JS
+14) CDC - Change Detection Cycle
+15) Rich Data Formatting - Pipes [In-built/Third-party pipes/Custom Pipes]
+16) Rich Directives [In-built/Third-Party/Custom]
+	Directive extends the behaviour of an Html Element of component
+17) Services in Angular [Share data and logic in Angular application]
+18) In-built support for IoC and D.I.
+19) Http support [Perform CRUD operations using Http Service with Http verbs - GET/POST/PUT/DELETE]
+20) Angular support rich animations - @angular/animations
+21) Angular Library Development - Enable developers to reuse the components in different Angular projects
+22) Angular offers Angular Component Library along with CDK - Component Development Kit
+	@angular/material
+23) Use Angular components in Non-Angular application - Angular Elements [For Ex - React/Vue JS/Html&JS/...]
+24) Angular Forms - 
+	1) Template Driven Forms
+	2) Reactive Forms
+25) Angular has integration with a third party library RxJS - Reactive Extensions for JavaScript Library
+	Observable-Observer pattern
+26) Angular offers CLI [Command Line Interface] tool to create Angular applications/libraries
+	@angular/cli
+27) Angular out-of-the-box uses Jasmine framework for writing test cases
+28) Angular uses Karma Test Runner tool to run Jasmine Test cases
+29) Support for PWA - Progressive Web Application 
+30) SSR - Server Side Rendering - @angular/universal
+		SEOs cannot crawl them
+
+
+Angular Framework's major building blocks - 
+
+	1) NgModule
+	2) Component
+	3) Directive
+	4) Pipe
+	5) Service
+
+Angular Application Bootstraping process
+	1) By default, when you create your first angular application, you will always one module and one component
+	2) Modules are like blackbox. Nothing goes out or nothing come in unless and until you want it
+
+
+Create first Angular application - 
+
+	1) Install Angular CLI Globally on your machine
+		npm install @angular/cli --global 
+	2) How do you check CLI version?
+		ng v
+	3) Create new Angular Project/Application
+		ng new first-ng-app
+
+Angular Coding Style Guide
+	https://angular.io/guide/styleguide
+
+
+In Angular framework, all major building blocks are classes
+
+Angular framework offers Number of Metadatas - Metadata tells Angular framework how to process a perticular class, Property, Data  Members, function, ...
+
+	All the metadatas come from @angular/core library
+	
+1)NgModule Metadata - 
+	@NgModule({
+  	    imports:[Day2Module], //All the dependency modules
+	    exports:[], //Anything you want to use outside this module
+	    declarations:[], //Entries of Components, Directives and Pipes
+	    providers:[], //Entries of Service(s)
+	    bootstrap:[] //component(s) entries which you want to render when the first page is renderd on your browser
+	})
+	class Day1Module{
+
+	}
+
+	@NgModule({
+  	    imports:[], //All the dependency modules
+	    exports:[Day2Component1], //Anything you want to use outside this module
+	    declarations:[Day2Component1], //Entries of Components, Directives and Pipes
+	    providers:[], //Entrries of Service(s)
+	})
+	class Day2Module{
+
+	}
+
+1) Component Metadata - 
+	@Component({
+	    selector:'', //CSS Selector. It is an name of your element which you use in Html. For Example - <bosch-root></bosch-root>
+	    template:''//Display
+	})
+
+
+Introduction to PoC - Bosch Events Management Portal [Roles - Administrator/Hr/Employee] 
+	Authentication and Authorization [Role Based] with Security Trimming
+
+	Employee Responsibilities - 
+		1) Employee can registerhimself/herself/itself
+		2) Employee can see other employee details
+		3) Employee can see the list of events
+		4) Employee can see the details of the event
+		5) Employee can register for an event
+		6) Employee can give feedback to an event
+	Hr Responsibilites - 
+		All reponsibilites of Employee
+		1) Adding, Removing, Updating the events
+		2) Collect feedback
+	Administrator - Application owner
+
+
+Application Structure - 
+	1) Featurewise and module wise Folder Structure
+	2) Each feature folder will contain its own module
+
+	src
+		index.html
+		main.ts
+		styles.css
+		...
+		app
+			employees
+				employees.module.ts
+				components
+					employees-list
+						employees-list.component.[ts,spec.ts,html,css]
+					employee-details
+						employee-details.component.[ts,spec.ts,html,css]
+					register-employee
+						register-employee.component.[ts,spec.ts,html,css]
+				models
+					employee.[ts, spec.ts]
+				pipes
+					*.pipe.[ts, spec.ts]
+				directives
+					*.directive.[ts, spec.ts]
+				services
+					employees.service.[ts, .sepc.ts]
+			events
+				events.module.ts
+				components
+					events-list
+						events-list.component.[ts,spec.ts,html,css]
+					event-details
+						event-details.component.[ts,spec.ts,html,css]
+					register-event
+						register-event.component.[ts,spec.ts,html,css]
+				models
+					event.[ts, spec.ts]
+				pipes
+					*.pipe.[ts, spec.ts]
+				directives
+					*.directive.[ts, spec.ts]
+				services
+					events.service.[ts, .sepc.ts]
+			home
+				home.module.ts
+				components
+					bosch-home
+						bosch-home.component.[ts,spec.ts,html,css]
+			navigation
+				navigation.module.ts
+				components
+					nav-bar
+						nav-bar.component.[ts,spec.ts,html,css]
+					footer
+						footer.component.[ts,spec.ts,html,css]
+			security
+				security.module.ts
+				components
+					login
+						login.component.[ts,spec.ts,html,css]
+					...
+				models
+					*.[ts, spec.ts]
+				pipes
+					*.pipe.[ts, spec.ts]
+				directives
+					*.directive.[ts, spec.ts]
+				services
+					security.service.[ts, .sepc.ts]
+			shared
+				shared.module.ts
+				components
+					not-found
+						not-found.component.[ts,spec.ts,html,css]
+				pipes
+					date-internationalization.pipe.[ts/sepc.ts]
+
+
+Angular CLI tool offers generate commands using which we can add - 
+	ng-modules, components, services, pipes, directive, interface, classes, ..
+
+	Generate commands - 
+
+		1) Add NgModule with feature-folder - 
+			ng g m employees
+		2) Add component
+			ng g c employees/components/employees-list
+		3) Add pipe
+			ng g p employees/pipes/name-of-the-pipe
+		4) Add directive
+			ng g d employees/directives/name-of-the-directive
+		5) Add service
+			ng g s employees/services/name-of-the-service
+		other commands
+			ng g class employees/models/employee
+			ng g class/interface/... into respective folders
+
+Introduction to Component - 
+	1) Component is a part of webpage
+	2) Component extends the vocabulary of Html - Tags
+	3) Component is used for display
+	4) Component is a special type of directive
+	5) Component development contains 3 parts - 
+		
+Component is divided into three parts - [HTML, CSS, Component class - logic]
+	1) Component Logic - written in component class
+	2) Component Template - [Display] - template:''/""/``
+		i) Inline Template [2-3 lines of code]
+			a) Single or double quotes
+			b) Backtick syntax
+		ii) Linked/External Template [.html file] - templateUrl:'file-path'
+
+Data Binding - 
+	One-Way - Source -To- Destination
+		i) Interpolation
+		2) Property Binding - DOM Properties
+
+
+In-build Directives
+	Looping Directive
+		*ngFor = For-Of
+	Conditional Directive
+		*ngIf;else
+In-built element from Angular framework
+	<ng-template></ng-template>
+
+
+
+Second Feature - events - 
+
+	ng g m events
+
+	ng g c events/components/events-list
+	ng g c events/components/event-details
+
+	ng g class events/models/event
+
+Data Formatting in Angular - 
+
+	Use pipe in Component template and the syntax is - 
+
+		property|pipe-name
+		property|pipe-name:'agr1':'arg2':'arg3'
+		property|pipe-name:'agr1':'arg2':'arg3'|pipe-name:'arg1'|pipe-name
+	Pipes -
+		1) In-built Pipes
+			lowercase, uppercase, titlecase, currency, date, ...
+		2) Custom Pipes - camel case the pipe name
+			1) Write a pipe which will display the date in a choice of language
+				Ex - startDate|dateInternationalization:'es-ES'
+			2) Write a pipe which will filter the events by event name
+				Use Two-Way data binding
+				[(ngModel)]
+				ngModel - directive comes from a separate library - @angular/forms
+					FormsModule which exports ngModel directive			
+		3) Third-party Pipes
+			ngx-pagination - Package [npm i ngx-pagination]
+				NgxPaginationModule
+					1) Pipe - paginate
+					2) Component - Pagination Control
+
+How does pipe work internally?
+
+import { Pipe, TransformPipe } from '@angular/core'
+
+@Pipe({
+	name:'awesome'
+})
+class MyAwesomePipe implements TransformPipe {
+	transform(value:unknown, ...args:unknown[]):unknown{
+		//Check the arguments and write the logic based on arguments
+		//you write the logic to transform/format the value
+		//return formatted value
+	}
+}
+
+property|awesome
+property|awesome:'one':'two'
+
+
+
+Assignments - 
+	1) Add pipe which will filters employees to display all employees list which contains the starts with
+	2) Add pipe which will display employees who had joined the company on a given date
+	3) Sort employees by the listed columns in EmployeesListComponent
+		Default - Ascending and Descending [Pipes/your logic]
+	4) Complete the display of EmployeeDetailsComponent
+	5) Display Joining date of an Employee in your local language using dateInternationalization
+	6) Apply pagination on employees table
+
+Day - 3
+
+	Sharing of Data and Logic in Angular application
+
+	Angular Services
+		Why Services?
+			1) Reusability of data and logic
+			2) Easy testing
+			3) Simple MVVM - [Model-View-ViewModel]
+			4) IoC - Inversion-Of-Control container and D.I. - Dependency Injection
+				[IoC - Provider/Injector]
+			5) Scope of Provider/Injector/IoC
+				1) platform - Two Angular application rendered on same page can share the data between each other
+				2) root - Make your service available within the Angular application but not outside the Angular application
+				3) any - Deprecated [Don't use it]
+				4) null/undefined - You can register your service at NgModule or a specific component hierachy level
+				
+			6) Singleton pattern
+
+Container = IoC
+	new DbLogger();
+	new WhatsAppLogger();
+	new SmsLogger();
+
+class DbLogger implements ILogger{
+	sendMessage(){
+		//DbLogic
+	}
+}
+
+class WhatsAppLogger implements ILogger{
+	sendMessage(){
+		//WhatsApp Logic
+	}
+}
+
+class SmsLogger implements ILogger{
+	sendMessage(){
+		//SMS Logic
+	}
+}
+
+Development Mode - Database [Actual]
+
+class OrderController{
+	private ILogger _log;
+	public OrderController(ILogger log){
+		_log = log;
+	}
+
+	processOrder(){
+		_log.sendMessage('some message');
+	}
+}
+	
+
+Testing - WhatsApp Logging
+
+Production - SMS Logging
+
+
+@Injectable({
+	providedIn:'platform/root/any'
+})
+class Service1{
+
+}
+
+What is MongoDB Server?
+	It is a NoSQL database Server
+
+RDBMS 							NoSQL
+	Oracle/MS SQL Server/MySQL/...				MongoDB
+		Databases						Databases
+			Table							Collections
+				Cols/Rows						Documents
+
+What is document?
+	Document is a JSON like object
+
+{
+	key:value,
+	key:value,
+	key:{
+		key:value,
+		key:{
+			key:value,
+		}
+	}
+}
+
+Writing queries in MongoDB Server - 
+
+We will use MongoShell terminal for writing the queries - MongoDB Server offers number of functions to manipulate the data under connected database. All functions follow camel casing
+
+1) Check all the existing databases in MongoDB server
+	show dbs;
+2) Create new database
+	use bosch-ng-16-oct-db;
+3) Add new collection into connected database
+	db.createCollection("events");
+	db.createCollection("users");
+4) List all the collections
+	show collections;
+5) Insert document(s) in a collection
+	db.users.insertOne({email:'alisha.c@bosch.com',password:'Welcome@123',role:'Hr'});
+	db.users.insertOne({email:'manish.sharma@bosch.com',password:'Welcome@123',role:'Employee'});
+
+	db.events.insertMany([
+    {
+      eventId: 1001,
+      eventCode: 'SEMJQ3',
+      eventName: 'Seminar on jQuery 3.x',
+      description: 'Seminar will discuss all the new features of jQuery 3.x',
+      startDate: new Date(),
+      endDate: new Date(),
+      fees: 800,
+      seatsFilled: 70,
+      logo: 'images/jq3.png'
+    },
+    {
+      eventId: 1002,
+      eventCode: 'SEMNG1',
+      eventName: 'Seminar on Angular JS 1.5.x',
+      description: 'Seminar will discuss all the new features of Angular JS 1.5.x',
+      startDate: new Date(),
+      endDate: new Date(),
+      fees: 600,
+      seatsFilled: 50,
+      logo: 'images/ng1.png'
+    },
+    {
+      eventId: 1003,
+      eventCode: 'SEMNG2',
+      eventName: 'Seminar on Angular 2.x',
+      description: 'Seminar will discuss all the new features of Angular 2.x',
+      startDate: new Date(),
+      endDate: new Date(),
+      fees: 1000,
+      seatsFilled: 80,
+      logo: 'images/ng2.png'
+    },
+    {
+      eventId: 1004,
+      eventCode: 'SEMNG4',
+      eventName: 'Seminar on Angular 4.x',
+      description: 'Seminar will discuss all the new features of Angular 4.x',
+      startDate: new Date(),
+      endDate: new Date(),
+      fees: 1000,
+      seatsFilled: 76,
+      logo: 'images/ng2.png'
+    },
+    {
+      eventId: 1005,
+      eventCode: 'SEMBS3',
+      eventName: 'Seminar on Bootstrap 3.x',
+      description: 'Seminar will discuss all the new features of Bootstrap 3.x',
+      startDate: new Date(),
+      endDate: new Date(),
+      fees: 500,
+      seatsFilled: 34,
+      logo: 'images/bs3.png'
+    }
+  ]);
+6) Select/Fetch all the document
+	db.users.find();
+	db.users.find({role:'Employee'});
+	db.events.find();
+	db.events.findOne();
+	db.users.findOne({role:'Hr'});
+7) Delete a document
+	db.users.deleteOne({role:'Administrator'});
+	db.users.deleteMany({role:'Administrator'});
+
+Working with REST API developed using Node JS and Express JS framework with MongoDB Server
+
+	Endpoints/URLs/Address - 
+		For Events data - 
+			http://localhost:9090/api/events [GET]
+			http://localhost:9090/api/events/1001 [GET]
+			http://localhost:9090/api/events [POST]
+			http://localhost:9090/api/events [PUT]
+			http://localhost:9090/api/events [DELETE]
+		For Security - 
+			http://localhost:9090/bosch/authentication [POST] for credentials authentication
+
+
+	How to run REST API provided by the trainer? [npm install] - to install all the required packages
+		node bosch-service.js 
+			in command prompt
+
+Fetch the data from the REST API using AJAX requests in Angular application - 
+	
+	To work with HTTP service in Angular applications - 
+
+		@angular/common/http [Package/Library]
+			HttpClientModule
+				HttpClient - Service [which you can use via Dependency Injection]
+					get()/get<T>()  => Observable<T>
+					post()/post<T>()  => Observable<T>
+					put()/put<T>()  => Observable<T>
+					delete()/delete<T>()  => Observable<T>
+
+
+	From where we get an Observable<T>? 
+		RxJS - Reactive Extensions for JavaScript Library
+			What is RxJS?
+
+		1) Create new Observable
+		2) Subscribe to an Observable [Observer]
+		3) Execute Observable
+
+Component Lifecycle - 
+	Provides Lifecycle Hooks/Methods which are invoked automatically when the component/directive starts its lifecycle
+
+	There are two types of Hooks - [Every hook method is offered by an Interface] [@angular/core]
+		1) Executed exactly once [Init]
+		2) Multiple times
+
+	<ng-content></ng-content>
+
+	Subscription and Unsubscription can be done automatically with async pipe provided you must have an observable
+
+Server Side/Backend Application
+	For every single request, it will do complete page post back
+Partial Page Rendering [AJAX reqest]
+	$.load('/mypage/ads.aspx')
+		will not maintain the partial page update history
+
+Introduction to SPA - Single Page Application
+
+	What is route?
+		A direction/an unique address to a specific resource
+	Routing Library [@angular/router] [RouterModule]
+
+	1) Declare routes
+		Routes array
+		http://localhost:4200 [Default Route] [DefaultComponent]
+		http://localhost:4200/home [Specific/Named Route] [HomeComponent]
+		http://localhost:4200/employees  [Specific/Named Route] [EmployeesListComponent]
+		http://localhost:4200/employees/1001 [Parameterized Route] [EmployeeDetailsComponent]
+		http://localhost:4200/employees?eid=1029 [Query String Route] [EmployeeDetailsComponent]
+		http://localhost:4200/events [Specific/Named Route] [EventsListComponent]
+		http://localhost:4200/events/new [Specific/Named Route-Parent/Child] [RegisterNewEventComponent]
+		http://localhost:4200/events/19292  [Parameterized Route] [EventDetailsComponent]
+		http://localhost:4200/login [Specific/Named Route] [LoginComponent]
+		http://localhost:4200/about [Specific/Named Route] [AboutUsComponent]
+		...
+
+	2) Placeholder/Content are where a specific component will be rendered in a specific area
+		<router-outlet></router-outlet>
+	3) Declarative Routes redirection
+
+	4) Programmatic Routes Redirections
+		Submit
+		
+	5) Routes Protection
+		Route Guards
+
+	6) Route Events and Routing services
+
+	7) Also maintain the browsing history of the user without component page post back
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
